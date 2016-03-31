@@ -5,14 +5,34 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
+<h:head>
+    <title>eCare16 | User Report Generator</title>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="my.css"/>
+</h:head>
+<h:body>
+    <div class="container div-login">
+        <div class="jumbotron">
+            <div class="form-group">
+                <h3 class="form-signin-heading text-danger" align="center">
+                    eCare16 User Report Generator
+                </h3>
+                <hr width="200px" align="center"/>
+            </div>
+            <h:form styleClass="form-horizontal">
+                <div class="form-group">
+                    <h:selectOneMenu value="#{userReport.selectedTariffId}" styleClass="form-control">
+                        <f:selectItems value="#{userReport.tariffList}" var="tariff"
+                                       itemValue="#{tariff.id}" itemLabel="#{tariff.name}"/>
+                    </h:selectOneMenu>
+                </div>
+                <div class="form-group">
+                    <h:commandButton action="#{userReport.generateUserReport}"
+                                     styleClass="btn btn-sm btn-danger btn-block" value="Generate Report"/>
+                </div>
 
-      <h:form>
-          <h:selectOneMenu value="#{userReport.selectedTariffId}">
-             <f:selectItems value="#{userReport.tariffList}" var="tariff"
-                            itemValue="#{tariff.id}" itemLabel="#{tariff.name}"/>
-         </h:selectOneMenu><br/>
-          <h:commandButton action="#{userReport.generateUserReport}"/>
-      </h:form>
-   </f:view>
+            </h:form>
+        </div>
+    </div>
+</h:body>
 </html>

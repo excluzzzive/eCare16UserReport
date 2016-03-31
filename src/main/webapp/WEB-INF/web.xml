@@ -16,4 +16,9 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/ExceptionHandler</location>
+    </error-page>
 </web-app>
